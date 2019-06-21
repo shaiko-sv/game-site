@@ -1,0 +1,33 @@
+@outlineTest: 1px solid gray;
+
+@widthAll: 1920px;
+
+@font-face {
+	font-family: 'Arial';
+	src: local('Arial'),
+	     url('../fonts/Arial.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: local('Poppins'),
+	     url('../fonts/Poppins-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: @outlineTest;
+}
+
+.p1 {
+    font-family: Arial;
+}
+
+.p2 {
+    font-family: Poppins;
+}
