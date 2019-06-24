@@ -1,11 +1,51 @@
-@outlineTest: 1px solid gray;
+@outlineTest: 1px solid rgb(188, 188, 188);
 
+/* width */
 @widthAll: 1920px;
+@widthFooter: 270px;
+
+/* height */
+@heightScreen: 163px;
+@heightHeader: 83px;
+@heightMenu: 48px;
+@heightDescription: 766px;
+@heightSimilar: 684px;
+@heightContactMap: 1449px;
+@heightMap: ;
+@heightFooter: 71px;
+
+/* margins */
+@marginTop: 12px;
+@marginMenu: 32px;
+
+/* colors */
+@backColor: #f7f7f7;
+@secondColor: #e3e3e3;
+@headerColor: #4a4a4a;
+@footerColor: #000000;
+@linkColor: #f44336;
+@colorBorderScreen: #a6a6a6;
+@colorMenu: #8c8c8c;
+
+/* fonts */
+@font1: Arial;
+@font2: Poppins;
+@font2-light: PoppinsLight;
+@font3: RobotoCondensed;
+@font3-light: RobotoCondensedLight;
 
 @font-face {
 	font-family: 'Arial';
 	src: local('Arial'),
 	     url('../fonts/Arial.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'PoppinsLight';
+	src: local('Poppins'),
+	     url('../fonts/Poppins-Light.ttf') format('truetype');
 	font-style: normal;
 	font-weight: normal;
 }
@@ -18,16 +58,304 @@
 	font-weight: normal;
 }
 
+@font-face {
+	font-family: 'RobotoCondensedLight';
+	src: local('RobotoCondensed'),
+	     url('../fonts/RobotoCondensed-Light.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'RobotoCondensed';
+	src: local('RobotoCondensed'),
+	     url('../fonts/RobotoCondensed-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
     outline: @outlineTest;
 }
 
-.p1 {
-    font-family: Arial;
+html,
+body {
+    background-color: @backColor;
+    max-width: @widthAll;
+    text-align: center;
 }
 
-.p2 {
-    font-family: Poppins;
+.arial {
+    font-family: @font1;
+}
+
+.poppinsLight {
+    font-family: @font2-light;
+}
+
+.poppins {
+    font-family: @font2;
+}
+
+.robotoCondensedLight {
+    font-family: @font3-light;
+}
+
+.robotoCondensed {
+    font-family: @font3;
+}
+
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  .allRights {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.screen {
+    border-bottom: 1px solid @colorBorderScreen;
+}
+
+.header {
+    margin-top: @marginTop;
+    background-color: @headerColor;
+    min-height: @heightHeader;
+    
+    .logo p {
+        // Style for "Historical"
+        color: #ffffff;
+        font-family: @font2;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 22.36px;
+        // Text style for "Historical"
+        letter-spacing: 0.77px;
+        
+        span {
+            // Style for "GAMES"
+            color: #ffffff;
+            font-family: @font2;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 22.36px;
+            text-transform: uppercase;
+            // Text style for "GAMES"
+            letter-spacing: 64.41px;
+        }
+    }
+    
+    .tel,
+    .email,
+    .search {
+        // Style for "+123 456 7"
+        color: #ffffff;
+        font-family: "Roboto Condensed";
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 22.36px;
+        // Text style for "+123 456 7"
+        letter-spacing: 0.36px;
+    }
+    
+    .email {
+        
+    }
+    
+    .search {
+        
+    }
+}
+
+.menu {
+    margin-top: @marginMenu;
+    min-height: @heightMenu;
+    background-color: transparent;
+    
+    // Style for "Home"
+    color: @colorMenu;
+    font-family: "Roboto Condensed";
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 22.36px;
+    letter-spacing: 0.36px;
+    
+    .menu-item {
+        float: left;
+        list-style-type: none;
+        padding-left: 15px;
+        padding-right: 15px;
+        a {
+            text-decoration: none;
+        }
+    }
+    
+    .menu-active-item {
+        // Text style for "Home"
+        color: #000000;
+    }
+}
+
+
+.productDescription {
+    min-height: @heightDescription;
+    
+    // Style for "Assasin’s"
+    color: #000000;
+    font-family: @font2;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 36px;
+    
+    span {
+    // Text style for ", Rogue"
+    color: #f44336;
+    }
+}
+
+.redFont {
+    color: #f44336;
+    font-family: @font2;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 36px;
+}
+
+.productSimilar {
+    background-color: @secondColor;
+    min-height: @heightSimilar;
+    
+    .redFont;    
+}
+
+.contactAndMap {
+    min-height: @heightContactMap;
+    
+    .redFont;
+    
+    .contactUs {
+        min-height: @heightContactMap / 2;
+    }
+
+    .googleMap {
+        min-height: @heightContactMap / 2;
+    }
+}
+
+.footer {
+    min-width:@widthFooter;
+    min-height: @heightFooter;
+    background-color: @footerColor;
+    color: #ffffff;
+    font-family: @font3;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.16px;
+    
+    .leftText {
+        text-align: right;
+    }
+    
+    .rightText {
+        text-align: left;
+    }    
+    
+    p {
+        text-align: center;
+        a {
+            color: @linkColor;
+            letter-spacing: 0.16px;
+            text-decoration: none;
+        }
+    }
+}
+
+/* style for round red arrow in the right bottom part of page */
+
+.topArrow {
+    position: fixed; /* Фиксированное положение */ 
+    right: @widthAll / 50; /* Расстояние от правого края окна браузера */
+    bottom: @heightFooter - 20px; /* Расстояние сверху */
+    width: 5%;
+    div {
+        position: relative;
+        width: 100%;
+        padding-bottom: 78%; /*Отношение высоте к ширине*/
+        
+        div {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+/*
+            background-image: url(../img/arrow.png);
+            background-color: @backColor;
+            background-position: center;
+            background-repeat: no-repeat;    
+            background-size: cover;
+*/
+            a img {
+                width: 100%;
+            }
+        }
+    }
+}
+/*  ------------  @media   --------------*/
+
+@media only screen and (max-width: 575px) {
+    .footer {
+        .leftText {
+            text-align: center;
+        }
+        .centerText {
+            width: 100%;
+        }
+        .rightText {
+            text-align: center;
+        }
+    }
+    .topArrow {
+        div {
+            div {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+    .topArrow {
+        div {
+            div {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+    .topArrow {
+        div {
+            div {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1366px) {
+    .topArrow {
+        div {
+            div {
+                width: 35px;
+                height: 35px;
+            }
+        }
+    }
 }
