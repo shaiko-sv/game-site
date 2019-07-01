@@ -34,6 +34,12 @@
   font-style: normal;
   font-weight: normal;
 }
+@font-face {
+  font-family: 'icomoon';
+  src: local('icomoon'), url('../fonts/icomoon/fonts/icomoon.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
 * {
   margin: 0;
   padding: 0;
@@ -42,7 +48,6 @@
 html,
 body {
   background-color: #f7f7f7;
-  max-width: 1920px;
   text-align: center;
 }
 .arial {
@@ -60,11 +65,7 @@ body {
 .robotoCondensed {
   font-family: RobotoCondensed;
 }
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-}
-.no-gutters .allRights {
+.allRights {
   padding-right: 0;
   padding-left: 0;
 }
@@ -75,37 +76,118 @@ body {
   margin-top: 12px;
   background-color: #4a4a4a;
   min-height: 83px;
+  min-width: 270px;
 }
-.header .logo p {
+.header a,
+.header a:active,
+.header a:visited,
+.header a:focus {
+  color: #ffffff;
+  text-decoration: none;
+}
+.header .logo {
   color: #ffffff;
   font-family: Poppins;
+  font-weight: 500;
+  line-height: 14px;
+  width: 178px;
+  padding: 0;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.header .logo .historical {
   font-size: 36px;
-  font-weight: 500;
-  line-height: 22.36px;
-  letter-spacing: 0.77px;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  text-align: center;
+  display: inline-block;
+  width: 178px;
 }
-.header .logo p span {
-  color: #ffffff;
-  font-family: Poppins;
+.header .logo .games {
   font-size: 15px;
-  font-weight: 500;
-  line-height: 22.36px;
   text-transform: uppercase;
-  letter-spacing: 64.41px;
+  letter-spacing: 31px;
+  text-align: center;
+  display: inline-block;
+  width: 178px;
+  padding-left: 1px;
 }
 .header .tel,
 .header .email,
 .header .search {
   color: #ffffff;
   font-family: "Roboto Condensed";
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 22.36px;
-  letter-spacing: 0.36px;
+  letter-spacing: -0.36px;
+}
+.header .tel {
+  text-align: right;
+}
+.header .tel img {
+  width: 15px;
+  position: relative;
+  top: 2px;
+}
+.header .tel .icon-mobile2 {
+  padding-top: 1px;
+  margin-top: 3px;
+  display: inline-block;
+}
+.header .email {
+  text-align: left;
+  margin-top: 5px;
+}
+.header .email p {
+  min-width: 157px;
+}
+.header .email img {
+  width: 20px;
+  position: relative;
+  top: 2px;
+}
+.header .email .icon-mail {
+  display: inline-block;
+  color: #4a4a4a;
+  background-color: #ffffff;
+  border-radius: 4px;
+  height: 18px;
+  width: 19px;
+  font-size: 23px;
+  margin-top: -5px;
+  position: relative;
+  left: -3px;
+  top: 6px;
+}
+.header .email .icon-mail span {
+  font-family: icomoon;
+}
+.header .search {
+  min-width: 165px;
+}
+.header .search input {
+  background-color: #4a4a4a;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  width: 130px;
+  height: 25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  text-transform: capitalize;
+}
+.header .search button {
+  background-color: #4a4a4a;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  width: 25px;
+  height: 25px;
+  margin-left: -1px;
 }
 .menu {
-  margin-top: 32px;
-  min-height: 48px;
+  min-width: 605px;
+  min-height: 77px;
   background-color: transparent;
   color: #8c8c8c;
   font-family: "Roboto Condensed";
@@ -117,14 +199,26 @@ body {
 .menu .menu-item {
   float: left;
   list-style-type: none;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 26px 15px;
 }
-.menu .menu-item a {
+.menu .menu-item a,
+.menu .menu-item a:visited,
+.menu .menu-item a:focus,
+.menu .menu-item a:active {
   text-decoration: none;
+  color: #8c8c8c;
+}
+.menu .menu-item:hover {
+  border-bottom: 2px solid black;
+}
+.menu .menu-item:hover a {
+  color: black;
 }
 .menu .menu-active-item {
-  color: #000000;
+  border-bottom: 2px solid black;
+}
+.menu .menu-active-item a {
+  color: #000000 !important;
 }
 .productDescription {
   min-height: 766px;
@@ -166,6 +260,10 @@ body {
 }
 .contactAndMap .googleMap {
   min-height: 724.5px;
+}
+.contactAndMap .googleMap .googleMapFrame {
+  width: 970px;
+  height: 300px;
 }
 .footer {
   min-width: 270px;
@@ -214,7 +312,7 @@ body {
   height: 40px;
   /*
             background-image: url(../img/arrow.png);
-            background-color: @backColor;
+            background-color: @colorBack;
             background-position: center;
             background-repeat: no-repeat;    
             background-size: cover;
@@ -225,6 +323,16 @@ body {
 }
 /*  ------------  @media   --------------*/
 @media only screen and (max-width: 575px) {
+  .header .tel {
+    text-align: center;
+  }
+  .header .email {
+    text-align: center;
+  }
+  .googleMap .googleMapFrame {
+    width: 300px;
+    height: 300px;
+  }
   .footer .leftText {
     text-align: center;
   }
@@ -240,18 +348,36 @@ body {
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 768px) {
+  .tel {
+    text-align: right;
+  }
+  .email {
+    text-align: left;
+  }
+  .googleMap .googleMapFrame {
+    width: 550px;
+    height: 300px;
+  }
   .topArrow div div {
     width: 25px;
     height: 25px;
   }
 }
 @media only screen and (min-width: 769px) and (max-width: 991px) {
+  .googleMap .googleMapFrame {
+    width: 740px;
+    height: 300px;
+  }
   .topArrow div div {
     width: 30px;
     height: 30px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1366px) {
+  .googleMap .googleMapFrame {
+    width: 970px;
+    height: 300px;
+  }
   .topArrow div div {
     width: 35px;
     height: 35px;

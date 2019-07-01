@@ -3,11 +3,13 @@
 /* width */
 @widthAll: 1920px;
 @widthFooter: 270px;
+@widthLogo: 178px;
+@widthMenu: 605px;
 
 /* height */
 @heightScreen: 163px;
 @heightHeader: 83px;
-@heightMenu: 48px;
+@heightMenu: 77px;
 @heightDescription: 766px;
 @heightSimilar: 684px;
 @heightContactMap: 1449px;
@@ -19,11 +21,11 @@
 @marginMenu: 32px;
 
 /* colors */
-@backColor: #f7f7f7;
-@secondColor: #e3e3e3;
-@headerColor: #4a4a4a;
-@footerColor: #000000;
-@linkColor: #f44336;
+@colorBack: #f7f7f7;
+@colorSecond: #e3e3e3;
+@colorHeader: #4a4a4a;
+@colorFooter: #000000;
+@colorLink: #f44336;
 @colorBorderScreen: #a6a6a6;
 @colorMenu: #8c8c8c;
 
@@ -74,6 +76,15 @@
 	font-weight: normal;
 }
 
+@font-face {
+	font-family: 'icomoon';
+	src: local('icomoon'),
+	     url('../fonts/icomoon/fonts/icomoon.ttf') format('truetype');
+	font-style: normal;
+	font-weight: normal;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -82,8 +93,7 @@
 
 html,
 body {
-    background-color: @backColor;
-    max-width: @widthAll;
+    background-color: @colorBack;
     text-align: center;
 }
 
@@ -107,15 +117,10 @@ body {
     font-family: @font3;
 }
 
-.no-gutters {
-  margin-right: 0;
-  margin-left: 0;
-
-  .allRights {
+.allRights {
     padding-right: 0;
     padding-left: 0;
   }
-}
 
 .screen {
     border-bottom: 1px solid @colorBorderScreen;
@@ -123,29 +128,48 @@ body {
 
 .header {
     margin-top: @marginTop;
-    background-color: @headerColor;
+    background-color: @colorHeader;
     min-height: @heightHeader;
+    min-width: @widthFooter;
     
-    .logo p {
-        // Style for "Historical"
+    a,
+    a:active,
+    a:visited,
+    a:focus {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    
+    .logo{
         color: #ffffff;
         font-family: @font2;
-        font-size: 36px;
         font-weight: 500;
-        line-height: 22.36px;
-        // Text style for "Historical"
-        letter-spacing: 0.77px;
+        line-height: 14px;
+        width: @widthLogo;
+        padding: 0;
+        margin-top: 15px;
+        margin-bottom: 5px;
         
-        span {
+        
+        .historical {
+            // Style for "Historical"
+            font-size: 36px;
+            text-transform: capitalize;
+            letter-spacing: 1px;
+            text-align: center;
+            display: inline-block;
+            width: @widthLogo;
+        }
+        
+        .games {
             // Style for "GAMES"
-            color: #ffffff;
-            font-family: @font2;
             font-size: 15px;
-            font-weight: 500;
-            line-height: 22.36px;
             text-transform: uppercase;
-            // Text style for "GAMES"
-            letter-spacing: 64.41px;
+            letter-spacing: 31px;
+            text-align: center;
+            display: inline-block;
+            width: @widthLogo;
+            padding-left: 1px;
         }
     }
     
@@ -155,24 +179,91 @@ body {
         // Style for "+123 456 7"
         color: #ffffff;
         font-family: "Roboto Condensed";
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 400;
         line-height: 22.36px;
         // Text style for "+123 456 7"
-        letter-spacing: 0.36px;
+        letter-spacing: -0.36px;
+    }
+    
+    .tel {
+        text-align: right;
+        
+        img {
+            width: 15px;
+            position: relative;
+            top: 2px;
+        }
+        
+        .icon-mobile2 {
+            padding-top: 1px;
+            margin-top: 3px;
+            display: inline-block;
+        }
     }
     
     .email {
+        text-align: left;
+        margin-top: 5px;
+        p {
+            min-width: 157px;
+        }
+        
+        img {
+            width: 20px;
+            position: relative;
+            top: 2px;
+        }
+        
+        .icon-mail {
+            display: inline-block;
+            color: @colorHeader;
+            background-color: #ffffff;
+            border-radius: 4px;
+            height: 18px;
+            width: 19px;
+            font-size: 23px;
+            margin-top: -5px;
+            position: relative;
+            left: -3px;
+            top: 6px;
+            
+            span {
+                font-family: icomoon;
+            }
+        }
         
     }
     
     .search {
+        min-width: 165px;
         
+        input {
+            background-color: @colorHeader;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            width: 130px;
+            height: 25px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 5px;
+            text-transform: capitalize;
+        }
+        
+        button {
+            background-color: @colorHeader;
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            width: 25px;
+            height: 25px;
+            margin-left: -1px;
+            
+        }
     }
 }
 
 .menu {
-    margin-top: @marginMenu;
+    min-width: @widthMenu;
     min-height: @heightMenu;
     background-color: transparent;
     
@@ -187,16 +278,29 @@ body {
     .menu-item {
         float: left;
         list-style-type: none;
-        padding-left: 15px;
-        padding-right: 15px;
-        a {
+        padding: 26px 15px;
+        a,
+        a:visited,
+        a:focus,
+        a:active {
             text-decoration: none;
+            color: @colorMenu;
         }
     }
     
+    .menu-item:hover {
+        border-bottom: 2px solid black;
+        a {
+            color: black;
+        }
+        }
+    
     .menu-active-item {
+        border-bottom: 2px solid black;
         // Text style for "Home"
-        color: #000000;
+        a {
+        color: #000000 !important;
+        }
     }
 }
 
@@ -226,7 +330,7 @@ body {
 }
 
 .productSimilar {
-    background-color: @secondColor;
+    background-color: @colorSecond;
     min-height: @heightSimilar;
     
     .redFont;    
@@ -243,13 +347,17 @@ body {
 
     .googleMap {
         min-height: @heightContactMap / 2;
+        .googleMapFrame {
+            width: 970px;
+            height: 300px;
+        }
     }
 }
 
 .footer {
     min-width:@widthFooter;
     min-height: @heightFooter;
-    background-color: @footerColor;
+    background-color: @colorFooter;
     color: #ffffff;
     font-family: @font3;
     font-size: 16px;
@@ -268,7 +376,7 @@ body {
     p {
         text-align: center;
         a {
-            color: @linkColor;
+            color: @colorLink;
             letter-spacing: 0.16px;
             text-decoration: none;
         }
@@ -293,7 +401,7 @@ body {
             height: 40px;
 /*
             background-image: url(../img/arrow.png);
-            background-color: @backColor;
+            background-color: @colorBack;
             background-position: center;
             background-repeat: no-repeat;    
             background-size: cover;
@@ -307,6 +415,22 @@ body {
 /*  ------------  @media   --------------*/
 
 @media only screen and (max-width: 575px) {
+    .header {
+        .tel {
+            text-align: center;
+        }
+        .email {
+            text-align: center;
+        }
+    }
+    
+    .googleMap {
+        .googleMapFrame {
+            width: 300px;
+            height: 300px;
+        }
+    }
+    
     .footer {
         .leftText {
             text-align: center;
@@ -329,6 +453,20 @@ body {
 }
 
 @media only screen and (min-width: 576px) and (max-width: 768px) {
+    .tel {
+        text-align: right;
+    }
+    
+    .email {
+        text-align: left;
+    }
+    
+    .googleMap {
+        .googleMapFrame {
+            width: 550px;
+            height: 300px;
+        }
+    }
     .topArrow {
         div {
             div {
@@ -340,6 +478,14 @@ body {
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {
+    
+    .googleMap {
+        .googleMapFrame {
+            width: 740px;
+            height: 300px;
+        }
+    }
+    
     .topArrow {
         div {
             div {
@@ -350,6 +496,14 @@ body {
     }
 }
 @media only screen and (min-width: 992px) and (max-width: 1366px) {
+    
+    .googleMap {
+        .googleMapFrame {
+            width: 970px;
+            height: 300px;
+        }
+    }    
+    
     .topArrow {
         div {
             div {
@@ -359,3 +513,4 @@ body {
         }
     }
 }
+
